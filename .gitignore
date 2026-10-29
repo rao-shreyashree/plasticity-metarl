@@ -1,9 +1,35 @@
-__pycache__/
+.DS_Store
+.idea/
 *.pyc
-.ipynb_checkpoints/
+__pycache__/
+
+# virtual environments
+venv/
+venv38/
+
+# logs and checkpoints
 logs/
-ckpt/
 *.pt
-wandb/
-.venv/
-EOF
+*.pth
+*.pkl
+**/events.out.tfevents.*
+
+# training logs
+!logs_gridworld/**/*.json
+!logs_gridworld/**/*.txt
+logs_gridworld/models/
+logs_gridworld/**/*.png
+
+!logs_halfcheetahvel/**/*.json
+!logs_halfcheetahvel/**/*.txt
+logs_halfcheetahvel/models/
+logs_halfcheetahvel/**/*.png
+
+!logs_single/**/*.json
+!logs_single/**/*.txt
+logs_single/models/
+logs_single/**/*.png
+
+docker/
+logs_t1_*/
+ckpt_t1_*/

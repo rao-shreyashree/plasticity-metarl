@@ -1,23 +1,35 @@
 .DS_Store
+.idea/
 *.pyc
-__pycache__
-.idea
+__pycache__/
 
-# training logs and weights
-!logs_gridworld/
-!logs_gridworld/**/*.png
-!logs_gridworld/**/*.json
-logs_gridworld/models/
+# virtual environments
+venv/
+venv38/
 
+# logs and checkpoints
 logs/
 *.pt
 *.pth
 *.pkl
-scripts/
-docker/
-*.json
 **/events.out.tfevents.*
 
-# local virtual environments
-venv/
-venv38/
+# training logs
+!logs_gridworld/**/*.json
+!logs_gridworld/**/*.txt
+logs_gridworld/models/
+logs_gridworld/**/*.png
+
+!logs_halfcheetahvel/**/*.json
+!logs_halfcheetahvel/**/*.txt
+logs_halfcheetahvel/models/
+logs_halfcheetahvel/**/*.png
+
+!logs_single/**/*.json
+!logs_single/**/*.txt
+logs_single/models/
+logs_single/**/*.png
+
+docker/
+logs_t1_*/
+ckpt_t1_*/

@@ -3,7 +3,7 @@ import math
 import random
 from torch.nn import functional as F
 
-import gym
+import gymnasium as gym
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 import numpy as np
@@ -16,6 +16,16 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 
 class GridNavi(gym.Env):
+    reward_range = (-float('inf'), float('inf'))
+    metadata = {}
+    spec = None
+
+    def seed(self, seed=None):
+        import numpy as np
+        np.random.seed(seed)
+        self.np_random = np.random
+        return [seed]
+
     def __init__(self, num_cells=5, num_steps=15):
         super(GridNavi, self).__init__()
 
@@ -58,6 +68,9 @@ class GridNavi(gym.Env):
             self._goal = np.array(task)
         self._reset_belief()
         return self._goal
+
+    def set_task(self, task):
+        GridNavi.reset_task(self, task=task)
 
     def _reset_belief(self):
         self._belief_state = np.zeros((self.num_cells ** 2))
